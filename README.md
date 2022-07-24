@@ -133,8 +133,9 @@ Refer to [this reference](https://github.com/tsconfig/bases/tree/main/bases) for
 
 Add the following params to your generated concepts using the `kody ride` command or manually. As an example, A declaration for a class might look like the following:
 ## 📅 Future Features
-- Generate `module`
-- Generate `type`
+- Generate `component`
+- Generate `page`
+- Generate `api`
 
 ## Run tests
 
