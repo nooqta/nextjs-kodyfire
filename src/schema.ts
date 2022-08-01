@@ -1,4 +1,4 @@
-import { schema as tsSchema } from '../../typescript-kodyfire/build'
+import { schema as tsSchema } from 'typescript-kodyfire'
 
 export const concept = {
   type: 'object',
