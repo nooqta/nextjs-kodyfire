@@ -29,7 +29,7 @@ In order to generate your artifacts, run the `generate` command. The syntax is `
 kody generate nextjs class
 ```
 ### Method 2: As a kody project
-Refer to the kodyfire [install a kody](https://github.com/nooqta/kodyfire#install-a-kody) section.
+Refer to the kodyfire __[generate your artifact](https://github.com/nooqta/kodyfire#generate-your-artifact)__ section.
 Once your project is initialized and ready for kody,
 generate your tsconfig concept using the `kody ride` command or manually. As an example, A declaration for a tsconfig concept might look like the following: 
 ```json
