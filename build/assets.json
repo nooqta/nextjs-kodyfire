@@ -29,7 +29,8 @@
                 "options": [],
                 "placeholders": []
             }
-        }, {
+        },
+        {
             "name": "tsconfig",
             "outputDir": "",
             "template": {
