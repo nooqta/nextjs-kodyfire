@@ -1,0 +1,12 @@
+import React, { PureComponent } from 'react';
+<%=#if cssModule %>
+import './<%= lowercase name%>.module.css';
+<%=/if %>
+
+class <%= classify name %> extends PureComponent {
+  render() {
+    return <div />;
+  }
+}
+
+export default <%= classify name %>;

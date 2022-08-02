@@ -21,9 +21,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Technology = void 0;
 const basic_kodyfire_1 = require("basic-kodyfire");
-const typescript_kodyfire_1 = require("typescript-kodyfire");
 const classes = __importStar(require("."));
-const tsClasses = __importStar(require("typescript-kodyfire"));
 const assets = __importStar(require("./assets.json"));
 const kodyfire_core_1 = require("kodyfire-core");
 class Technology extends basic_kodyfire_1.Technology {
@@ -33,10 +31,6 @@ class Technology extends basic_kodyfire_1.Technology {
             this.assets = _assets;
             this.updateTemplatesPath(params);
             this.initConcepts();
-            const tsTechno = new typescript_kodyfire_1.Technology(params, _assets);
-            tsTechno.updateTemplatesPath(params);
-            tsTechno.initConcepts();
-            this.technologies = [tsTechno];
         }
         catch (error) {
             console.log(error);
@@ -45,8 +39,7 @@ class Technology extends basic_kodyfire_1.Technology {
     initConcepts() {
         // add dynamic property for technology
         for (const concept of this.assets.concepts) {
-            const conceptClasses = Object.assign(Object.assign({}, classes), tsClasses);
-            this.concepts.set(concept.name, new conceptClasses[(0, kodyfire_core_1.capitalize)(concept.name)](concept, this));
+            this.concepts.set(concept.name, new classes[(0, kodyfire_core_1.capitalize)(concept.name)](concept, this));
         }
     }
 }

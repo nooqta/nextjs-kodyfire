@@ -26,16 +26,30 @@ class Concept extends basic_kodyfire_1.Concept {
         return __awaiter(this, void 0, void 0, function* () {
             const template = yield this.engine.read((0, path_1.join)(this.getTemplatesPath(), this.template.path), _data.template);
             const compiled = this.engine.compile(template, _data);
+            // if is requires a directory, create it and create the index file
+            if (_data.isFolder) {
+                const indexTemplate = yield this.engine.read((0, path_1.join)(this.getTemplatesPath(), this.template.path), 'index.js.template');
+                const indexCompiled = this.engine.compile(indexTemplate, _data);
+                // We update the path
+                _data.outputDir = (0, path_1.join)(_data.outputDir, _data.name.toLowerCase());
+                yield this.engine.createOrOverwrite(this.technology.rootDir, this.outputDir, (0, path_1.join)(_data.outputDir, 'index.' + _data.extension.replace('jsx', 'js').replace('tsx', 'ts')), indexCompiled);
+            }
+            // We create the css module file
+            if (_data.cssModule) {
+                const cssModuleTemplate = yield this.engine.read((0, path_1.join)(this.getTemplatesPath(), this.template.path), 'component.css.template');
+                const cssModuleCompiled = this.engine.compile(cssModuleTemplate, _data);
+                yield this.engine.createOrOverwrite(this.technology.rootDir, this.outputDir, (0, path_1.join)(_data.outputDir, _data.name.toLowerCase() + '.module.css'), cssModuleCompiled);
+            }
             yield this.engine.createOrOverwrite(this.technology.rootDir, this.outputDir, this.getFilename(_data), compiled);
         });
     }
     getFilename(data) {
         if (data.filename)
             return data.filename;
-        return (0, path_1.join)(data.outputDir, `${data.name}.${this.getExtension(data.template)}`);
+        return (0, path_1.join)(data.outputDir, `${data.name}.${this.getExtension(data.extension)}`);
     }
-    getExtension(templateName) {
-        return templateName.replace('.template', '').split('.').pop();
+    getExtension(extension) {
+        return extension;
     }
     getTemplatesPath() {
         return this.technology.params.templatesPath

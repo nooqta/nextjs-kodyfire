@@ -22,6 +22,38 @@ export class Concept extends BaseConcept {
 
     const compiled = this.engine.compile(template, _data);
 
+    // if is requires a directory, create it and create the index file
+    if(_data.isFolder) {
+      const indexTemplate = await this.engine.read(
+        join(this.getTemplatesPath(), this.template.path),
+        'index.js.template'
+      );
+      const indexCompiled = this.engine.compile(indexTemplate, _data);
+      // We update the path
+      _data.outputDir = join(_data.outputDir, _data.name.toLowerCase());
+      await this.engine.createOrOverwrite(
+        this.technology.rootDir,
+        this.outputDir,
+        join(_data.outputDir, 'index.' + _data.extension.replace('jsx', 'js').replace('tsx', 'ts')),
+        indexCompiled
+      );
+    }
+
+    // We create the css module file
+    if(_data.cssModule) {
+      const cssModuleTemplate = await this.engine.read(
+        join(this.getTemplatesPath(), this.template.path),
+        'component.css.template'
+      );
+      const cssModuleCompiled = this.engine.compile(cssModuleTemplate, _data);
+      await this.engine.createOrOverwrite(
+        this.technology.rootDir,
+        this.outputDir,
+        join(_data.outputDir, _data.name.toLowerCase() + '.module.css'),
+        cssModuleCompiled
+      );
+    }
+
     await this.engine.createOrOverwrite(
       this.technology.rootDir,
       this.outputDir,
@@ -34,12 +66,12 @@ export class Concept extends BaseConcept {
     if (data.filename) return data.filename;
     return join(
       data.outputDir,
-      `${data.name}.${this.getExtension(data.template)}`
+      `${data.name}.${this.getExtension(data.extension)}`
     );
   }
 
-  getExtension(templateName: string) {
-    return templateName.replace('.template', '').split('.').pop();
+  getExtension(extension: string) {
+    return extension;
   }
 
   getTemplatesPath(): string {

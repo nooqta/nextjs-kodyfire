@@ -4,6 +4,6 @@ export declare class Concept extends BaseConcept {
     constructor(concept: Partial<IConcept>, technology: ITechnology);
     generate(_data: any): Promise<void>;
     getFilename(data: any): any;
-    getExtension(templateName: string): string | undefined;
+    getExtension(extension: string): string;
     getTemplatesPath(): string;
 }

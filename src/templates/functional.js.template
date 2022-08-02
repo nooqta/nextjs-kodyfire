@@ -1,0 +1,10 @@
+import React from 'react';
+<%=#if cssModule %>
+import './<%= lowercase name%>.module.css';
+<%=/if %>
+
+function <%= classify name %>() {
+  return <div />;
+};
+
+export default <%= classify name %>;

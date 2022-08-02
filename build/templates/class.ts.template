@@ -1,19 +1,19 @@
-export default class {{classify name}} {{#if extends }} extends {{extends}} {{/if}} {{#if implements }} implements {{implements}} {{/if}} {
-    {{#each properties}}
-    {{name}}{{#if optional}}?{{/if}}: {{type}};
-    {{/each}}
-    {{#if constructor}}
-    constructor({{#each args}}{{name}}: {{type}}{{#unless @last}}, {{/unless}}{{/each}}) {
-        {{#each properties}}
-        this.{{name}} = {{name}};
-        {{/each}}
+export default class <%=classify name %> <%=#if extends  %> extends <%=extends %> <%=/if %> <%=#if implements  %> implements <%=implements %> <%=/if %> {
+    <%=#each properties %>
+    <%=name %> <%=#if optional %>?<%=/if %>: <%=type %>;
+    <%=/each %>
+    <%=#if constructor %>
+    constructor(<%=#each args %> <%=name %>: <%=type %> <%=#unless @last %>, <%=/unless %> <%=/each %>) {
+        <%=#each properties %>
+        this.<%=name %> = <%=name %>;
+        <%=/each %>
     }
-    {{/if}}
+    <%=/if %>
 
-  {{#each methods}}
-  {{name}}({{#each parameters}}{{name}}: {{type}}{{#unless @last}}, {{/unless}}{{/each}}): {{returnType}} {
-    {{#if returnType}}
-    return {{/if}}
+  <%=#each methods %>
+  <%=name %>(<%=#each parameters %> <%=name %>: <%=type %> <%=#unless @last %>, <%=/unless %> <%=/each %>): <%=returnType %> {
+    <%=#if returnType %>
+    return <%=/if %>
   }
-  {{/each}}
+  <%=/each %>
 }

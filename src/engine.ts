@@ -2,6 +2,7 @@ import { join, relative, dirname } from 'path';
 import { Engine as BaseEngine } from 'basic-kodyfire';
 const fs = require('fs');
 const fsPromises = fs.promises;
+const delimiters = require('handlebars-delimiters');
 
 // Wrap your builder in a class that implements the IBuilder interface
 import * as builder from 'handlebars';
@@ -10,6 +11,8 @@ export class Engine extends BaseEngine {
   builder: any;
   constructor() {
     super();
+    // Change the delimiters to avoid conflicts between handlebars and react
+    delimiters(builder, ['<%=', '%>']);
     this.builder = builder;
   }
 

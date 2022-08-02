@@ -1,0 +1,1 @@
+import <%= classify name %> from './<%=name%>';

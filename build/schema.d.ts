@@ -3,13 +3,32 @@ export declare const concept: {
     properties: {
         name: {
             type: string;
+            description: string;
         };
         template: {
             type: string;
+            description: string;
             enum: string[];
+            default: string;
+        };
+        extension: {
+            description: string;
+            enum: string[];
+            default: string;
+        };
+        isFolder: {
+            type: string;
+            default: boolean;
+            description: string;
+        };
+        cssModule: {
+            type: string;
+            default: boolean;
+            description: string;
         };
         outputDir: {
             type: string;
+            default: string;
         };
     };
 };
@@ -20,13 +39,32 @@ export declare const conceptArray: {
         properties: {
             name: {
                 type: string;
+                description: string;
             };
             template: {
                 type: string;
+                description: string;
                 enum: string[];
+                default: string;
+            };
+            extension: {
+                description: string;
+                enum: string[];
+                default: string;
+            };
+            isFolder: {
+                type: string;
+                default: boolean;
+                description: string;
+            };
+            cssModule: {
+                type: string;
+                default: boolean;
+                description: string;
             };
             outputDir: {
                 type: string;
+                default: string;
             };
         };
     };
@@ -50,13 +88,69 @@ export declare const schema: {
                 properties: {
                     name: {
                         type: string;
+                        description: string;
                     };
                     template: {
                         type: string;
+                        description: string;
                         enum: string[];
+                        default: string;
+                    };
+                    extension: {
+                        description: string;
+                        enum: string[];
+                        default: string;
+                    };
+                    isFolder: {
+                        type: string;
+                        default: boolean;
+                        description: string;
+                    };
+                    cssModule: {
+                        type: string;
+                        default: boolean;
+                        description: string;
                     };
                     outputDir: {
                         type: string;
+                        default: string;
+                    };
+                };
+            };
+        };
+        component: {
+            type: string;
+            items: {
+                type: string;
+                properties: {
+                    name: {
+                        type: string;
+                        description: string;
+                    };
+                    template: {
+                        type: string;
+                        description: string;
+                        enum: string[];
+                        default: string;
+                    };
+                    extension: {
+                        description: string;
+                        enum: string[];
+                        default: string;
+                    };
+                    isFolder: {
+                        type: string;
+                        default: boolean;
+                        description: string;
+                    };
+                    cssModule: {
+                        type: string;
+                        default: boolean;
+                        description: string;
+                    };
+                    outputDir: {
+                        type: string;
+                        default: string;
                     };
                 };
             };

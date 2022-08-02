@@ -13,6 +13,15 @@
       }
     },
     {
+      "name": "component",
+      "outputDir": "",
+      "template": {
+        "path": "templates/",
+        "options": [],
+        "placeholders": []
+      }
+    },
+    {
       "name": "class",
       "outputDir": "",
       "template": {

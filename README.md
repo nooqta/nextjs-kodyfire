@@ -26,9 +26,9 @@ npm install nextjs-kodyfire
 ### Method 1: As a generator
 In order to generate your artifacts, run the `generate` command. The syntax is `kody generate|g [kody] [concept]`. If you ommit `kody` and `concept` the assistant will prompt you to select them. As an example, run the following command from your terminal:
 ```sh
-kody generate nextjs class
+kody generate nextjs component
 ```
-### Method 2: As a kody project
+### Method 2: As a runner in a kody project
 Refer to the kodyfire __[generate your artifact](https://github.com/nooqta/kodyfire#generate-your-artifact)__ section.
 Once your project is initialized and ready for kody,
 generate your tsconfig concept using the `kody ride` command or manually. As an example, A declaration for a tsconfig concept might look like the following: 
@@ -74,12 +74,20 @@ kody run -s kody-nextjs.json
 ```
 ### Available concepts 
 
+#### `component`
+> Generates a react component
+
+##### Params
+
+- `name` _string_ - Component name. Default filename
+- `template` _enum_ - template name to use. Only one by default.
+- `extension` _enum_ - file extension. Possible values: js, ts, jsx, tsx
+- `isFolder` _boolean_ - If the component will be placed in a folder. This will add an index file for imports.
+- `ccsModule` _boolean_ - if a css module file should be created.
+- `outputDir` _string_ - The output directory
+
 #### `page`
 > Generates a nextjs page
-//TODO
-
-#### `component`
-> Generates a nextjs react component
 //TODO
 
 #### `api`

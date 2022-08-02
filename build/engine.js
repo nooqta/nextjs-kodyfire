@@ -33,11 +33,14 @@ const path_1 = require("path");
 const basic_kodyfire_1 = require("basic-kodyfire");
 const fs = require('fs');
 const fsPromises = fs.promises;
+const delimiters = require('handlebars-delimiters');
 // Wrap your builder in a class that implements the IBuilder interface
 const builder = __importStar(require("handlebars"));
 class Engine extends basic_kodyfire_1.Engine {
     constructor() {
         super();
+        // Change the delimiters to avoid conflicts between handlebars and react
+        delimiters(builder, ['<%=', '%>']);
         this.builder = builder;
     }
     read(path, templateName) {
