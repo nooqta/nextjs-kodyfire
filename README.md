@@ -31,7 +31,7 @@ kody generate nextjs component
 ### Method 2: As a runner in a kody project
 Refer to the kodyfire __[generate your artifact](https://github.com/nooqta/kodyfire#generate-your-artifact)__ section.
 Once your project is initialized and ready for kody,
-generate your tsconfig concept using the `kody ride` command or manually. As an example, A declaration for a tsconfig concept might look like the following: 
+generate your nextjs concept using the `kody ride` command or manually. As an example, A declaration for a nextjs concept might look like the following: 
 ```json
 {
 			"name": "Bird",
