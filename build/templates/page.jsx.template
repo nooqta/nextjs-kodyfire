@@ -1,0 +1,17 @@
+import React from 'react';
+<%=#if routerParam %>
+import { useRouter } from 'next/router';
+<%=/if %>
+<%=#if cssModule %>
+import './<%= lowercase name%>.module.css';
+<%=/if %>
+
+const <%= classify name %> = () => {
+  <%=#if routerParam %>
+  const router = useRouter();
+  const { <%= routerParam %> } = router.query;
+  <%=/if %>
+  return <div />;
+};
+
+export default <%= classify name %>;

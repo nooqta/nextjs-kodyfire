@@ -21,7 +21,14 @@ export class Page extends BaseConcept {
     );
 
     const compiled = this.engine.compile(template, _data);
-
+    if(_data.isDynamicRoute) {
+      _data.outputDir = join(_data.outputDir, _data.name.toLowerCase());
+      _data.filename = join(_data.outputDir, `[${_data.routerParam||_data.name}].${this.getExtension(_data.template)}`);
+    } else if(_data.isFolder) {
+      // We update the path
+      _data.outputDir = join(_data.outputDir, _data.name.toLowerCase());
+      _data.filename = join(_data.outputDir, `index.${this.getExtension(_data.template)}`);
+    } 
     await this.engine.createOrOverwrite(
       this.technology.rootDir,
       this.outputDir,
