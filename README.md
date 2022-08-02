@@ -88,7 +88,15 @@ kody run -s kody-nextjs.json
 
 #### `page`
 > Generates a nextjs page
-//TODO
+
+##### Params
+
+- `name` _string_ - Component name. Default filename
+- `isFolder` _boolean_ - If the component will be placed in a folder. This will add an index file for imports.
+- `ccsModule` _boolean_ - if a css module file should be created.
+- `isDynamicRoute` _boolean_ - if the page uses a dynamic route.
+- `routerParam` _string_ - Required if isDynamicRoute is `true`. This will generate a dynamic page. Example: [id].jsx
+- `outputDir` _string_ - The output directory
 
 #### `api`
 > Generates a nextjs api endpoint
