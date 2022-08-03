@@ -100,7 +100,14 @@ kody run -s kody-nextjs.json
 
 #### `api`
 > Generates a nextjs api endpoint
-//TODO
+
+##### Params
+
+- `name` _string_ - Name of the file/folder
+- `isFolder` _boolean_ - If the component will be placed in a folder.
+- `isDynamicRoute` _boolean_ - if the endpoint uses a dynamic route.
+- `routerParam` _string_ - Required if `isDynamicRoute` is `true`. This will generate a filename as [routerParam].ts
+- `outputDir` _string_ - The output directory. Default is `src/pages/api`
 
 #### `class` 
 

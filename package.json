@@ -1,6 +1,6 @@
 {
   "name": "nextjs-kodyfire",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "description": "Generate nextjs related artifacts with nextjs kodyfire",
   "main": "build/index.js",
   "scripts": {

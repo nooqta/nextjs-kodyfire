@@ -1,0 +1,18 @@
+import { NextApiHandler } from "next";
+
+const handler: NextApiHandler = async (req, res) => {
+    <%=#if routerParam %>
+    const { <%= routerParam %> } = req.query;
+    <%=/if %>
+    if (req.method === 'POST') {
+        // Handle post
+        let { body } = req;
+      } else {
+        // Handle any other HTTP method
+    }
+
+    res.status(200).json('Hello World');
+    res.end();
+}
+
+export default handler;

@@ -43,6 +43,25 @@ export const page = {
   },
 };
 
+export const api = {
+  type: 'object',
+  properties: {
+    name: { type: 'string', description: 'Name of the file/folder' },
+    template: {
+      type: 'string',
+      description: 'Name of the template',
+      enum: [
+        'index.ts.template'
+      ],
+      default: 'index.ts.template'
+    },
+    isFolder: { type: 'boolean', default: false, description: 'Is a folder containing an index file.' },
+    isDynamicRoute: { type: 'boolean', default: false, description: 'This page uses a dynamic route.' },
+    routerParam: { type: 'string', description: 'If this endpoint uses a dynamic route (ex: [id].ts)' },
+    outputDir: { type: 'string', default: 'src/pages/api' },
+  },
+};
+
 export const conceptArray = {
   type: 'array',
   items: concept,
@@ -50,6 +69,10 @@ export const conceptArray = {
 export const pageArray = {
   type: 'array',
   items: page,
+};
+export const apiArray = {
+  type: 'array',
+  items: api,
 };
 export const schema = {
 
@@ -60,7 +83,8 @@ export const schema = {
     name: { type: 'string' },
     rootDir: { type: 'string' },
     concept: conceptArray,
-    page: pageArray
+    page: pageArray,
+    api: apiArray
   },
   required: ['name'],
 };

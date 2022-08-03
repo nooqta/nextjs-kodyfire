@@ -91,6 +91,42 @@ export declare class Kody extends BaseKody {
                     };
                 };
             };
+            api: {
+                type: string;
+                items: {
+                    type: string;
+                    properties: {
+                        name: {
+                            type: string;
+                            description: string;
+                        };
+                        template: {
+                            type: string;
+                            description: string;
+                            enum: string[];
+                            default: string;
+                        };
+                        isFolder: {
+                            type: string;
+                            default: boolean;
+                            description: string;
+                        };
+                        isDynamicRoute: {
+                            type: string;
+                            default: boolean;
+                            description: string;
+                        };
+                        routerParam: {
+                            type: string;
+                            description: string;
+                        };
+                        outputDir: {
+                            type: string;
+                            default: string;
+                        };
+                    };
+                };
+            };
             component: {
                 type: string;
                 items: {

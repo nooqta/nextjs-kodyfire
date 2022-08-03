@@ -70,6 +70,39 @@ export declare const page: {
         };
     };
 };
+export declare const api: {
+    type: string;
+    properties: {
+        name: {
+            type: string;
+            description: string;
+        };
+        template: {
+            type: string;
+            description: string;
+            enum: string[];
+            default: string;
+        };
+        isFolder: {
+            type: string;
+            default: boolean;
+            description: string;
+        };
+        isDynamicRoute: {
+            type: string;
+            default: boolean;
+            description: string;
+        };
+        routerParam: {
+            type: string;
+            description: string;
+        };
+        outputDir: {
+            type: string;
+            default: string;
+        };
+    };
+};
 export declare const conceptArray: {
     type: string;
     items: {
@@ -128,6 +161,42 @@ export declare const pageArray: {
                 description: string;
             };
             cssModule: {
+                type: string;
+                default: boolean;
+                description: string;
+            };
+            isDynamicRoute: {
+                type: string;
+                default: boolean;
+                description: string;
+            };
+            routerParam: {
+                type: string;
+                description: string;
+            };
+            outputDir: {
+                type: string;
+                default: string;
+            };
+        };
+    };
+};
+export declare const apiArray: {
+    type: string;
+    items: {
+        type: string;
+        properties: {
+            name: {
+                type: string;
+                description: string;
+            };
+            template: {
+                type: string;
+                description: string;
+                enum: string[];
+                default: string;
+            };
+            isFolder: {
                 type: string;
                 default: boolean;
                 description: string;
@@ -218,6 +287,42 @@ export declare const schema: {
                         description: string;
                     };
                     cssModule: {
+                        type: string;
+                        default: boolean;
+                        description: string;
+                    };
+                    isDynamicRoute: {
+                        type: string;
+                        default: boolean;
+                        description: string;
+                    };
+                    routerParam: {
+                        type: string;
+                        description: string;
+                    };
+                    outputDir: {
+                        type: string;
+                        default: string;
+                    };
+                };
+            };
+        };
+        api: {
+            type: string;
+            items: {
+                type: string;
+                properties: {
+                    name: {
+                        type: string;
+                        description: string;
+                    };
+                    template: {
+                        type: string;
+                        description: string;
+                        enum: string[];
+                        default: string;
+                    };
+                    isFolder: {
                         type: string;
                         default: boolean;
                         description: string;

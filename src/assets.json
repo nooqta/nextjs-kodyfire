@@ -22,6 +22,15 @@
       }
     },
     {
+      "name": "api",
+      "outputDir": "",
+      "template": {
+        "path": "templates/api/",
+        "options": [],
+        "placeholders": []
+      }
+    },
+    {
       "name": "component",
       "outputDir": "",
       "template": {
