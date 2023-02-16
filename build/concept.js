@@ -16,6 +16,7 @@ const engine_1 = require("./engine");
 class Concept extends basic_kodyfire_1.Concept {
     constructor(concept, technology) {
         super(concept, technology);
+        this.extension = '.jsx';
         this.engine = new engine_1.Engine();
         // Register functions you want to use in your templates with the engine builder registerHelper method.
         this.engine.builder.registerHelper('uppercase', (value) => {

@@ -1,6 +1,6 @@
 import React from 'react';
 <%=#if cssModule %>
-import './<%= lowercase name%>.module.css';
+import './<%= lowercase name%>.module.<%= cssModule %>';
 <%=/if %>
 
 function <%= classify name %>() {

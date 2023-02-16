@@ -72,8 +72,8 @@ export declare class Kody extends BaseKody {
                         };
                         cssModule: {
                             type: string;
-                            default: boolean;
-                            description: string;
+                            enum: string[];
+                            default: string;
                         };
                         isDynamicRoute: {
                             type: string;
@@ -82,6 +82,9 @@ export declare class Kody extends BaseKody {
                         };
                         routerParam: {
                             type: string;
+                            condition: ({ isDynamicRoute }: {
+                                isDynamicRoute: boolean;
+                            }) => boolean;
                             description: string;
                         };
                         outputDir: {

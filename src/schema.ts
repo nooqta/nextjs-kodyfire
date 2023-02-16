@@ -36,9 +36,16 @@ export const page = {
       default: 'page.jsx.template'
     },
     isFolder: { type: 'boolean', default: false, description: 'Is a folder. Will include an index for imports.' },
-    cssModule: { type: 'boolean', default: false, description: 'Include a css module file.' },
-    isDynamicRoute: { type: 'boolean', default: false, description: 'This page uses a dynamic route.' },
-    routerParam: { type: 'string', description: 'If this page uses a dynamic route (ex: [id].jsx)' },
+    cssModule: { type: 'string', 
+        enum: [
+            'none',
+            'css',
+            'scss'
+        ],
+        default: 'none',
+      },
+        isDynamicRoute: { type: 'boolean', default: false, description: 'This page uses a dynamic route.' },
+    routerParam: { type: 'string', condition: ({isDynamicRoute}: {isDynamicRoute: boolean}) => isDynamicRoute == true, description: 'If this page uses a dynamic route (ex: if want [id].ext type id)' },
     outputDir: { type: 'string', default: 'src/pages' },
   },
 };

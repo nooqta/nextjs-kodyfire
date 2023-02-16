@@ -52,8 +52,8 @@ export declare const page: {
         };
         cssModule: {
             type: string;
-            default: boolean;
-            description: string;
+            enum: string[];
+            default: string;
         };
         isDynamicRoute: {
             type: string;
@@ -62,6 +62,9 @@ export declare const page: {
         };
         routerParam: {
             type: string;
+            condition: ({ isDynamicRoute }: {
+                isDynamicRoute: boolean;
+            }) => boolean;
             description: string;
         };
         outputDir: {
@@ -162,8 +165,8 @@ export declare const pageArray: {
             };
             cssModule: {
                 type: string;
-                default: boolean;
-                description: string;
+                enum: string[];
+                default: string;
             };
             isDynamicRoute: {
                 type: string;
@@ -172,6 +175,9 @@ export declare const pageArray: {
             };
             routerParam: {
                 type: string;
+                condition: ({ isDynamicRoute }: {
+                    isDynamicRoute: boolean;
+                }) => boolean;
                 description: string;
             };
             outputDir: {
@@ -288,8 +294,8 @@ export declare const schema: {
                     };
                     cssModule: {
                         type: string;
-                        default: boolean;
-                        description: string;
+                        enum: string[];
+                        default: string;
                     };
                     isDynamicRoute: {
                         type: string;
@@ -298,6 +304,9 @@ export declare const schema: {
                     };
                     routerParam: {
                         type: string;
+                        condition: ({ isDynamicRoute }: {
+                            isDynamicRoute: boolean;
+                        }) => boolean;
                         description: string;
                     };
                     outputDir: {

@@ -4,6 +4,7 @@ import { join, relative } from 'path';
 import { Concept as BaseConcept } from 'basic-kodyfire';
 import { Engine } from './engine';
 export class Concept extends BaseConcept {
+  extension = '.jsx';
   constructor(concept: Partial<IConcept>, technology: ITechnology) {
     super(concept, technology);
     this.engine = new Engine();

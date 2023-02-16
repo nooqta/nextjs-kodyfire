@@ -3,7 +3,7 @@ import React from 'react';
 import { useRouter } from 'next/router';
 <%=/if %>
 <%=#if cssModule %>
-import './<%= lowercase name%>.module.css';
+import './<%= lowercase name%>.module.<%= cssModule %>';
 <%=/if %>
 
 const <%= classify name %> = () => {
@@ -11,7 +11,9 @@ const <%= classify name %> = () => {
   const router = useRouter();
   const { <%= routerParam %> } = router.query;
   <%=/if %>
-  return <div />;
+  return <div className="<%= lowercase name %>">
+
+    </div>;
 };
 
 export default <%= classify name %>;
